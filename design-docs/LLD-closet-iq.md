@@ -4,7 +4,6 @@
 
 The Low-Level Design (LLD) defines the internal structure of the Wardrobe AI application, including database schemas, API contracts, folder structure, state management, and component interactions.
 
----
 
 # 1. Database Design
 
@@ -18,7 +17,6 @@ Managed by Supabase Auth.
 | email | VARCHAR | User Email |
 | created_at | TIMESTAMP | Account Creation Date |
 
----
 
 ## wardrobe_items
 
@@ -37,7 +35,6 @@ Stores all clothing items uploaded by users.
 | favorite | BOOLEAN | Favorite Flag |
 | created_at | TIMESTAMP | Upload Time |
 
----
 
 ## outfits
 
@@ -51,7 +48,6 @@ Stores user-created outfits.
 | favorite | BOOLEAN | Favorite Flag |
 | created_at | TIMESTAMP | Creation Date |
 
----
 
 ## outfit_items
 
@@ -63,7 +59,6 @@ Many-to-many relationship between outfits and wardrobe items.
 | outfit_id | UUID | FK → outfits.id |
 | wardrobe_item_id | UUID | FK → wardrobe_items.id |
 
----
 
 ## wear_history
 
@@ -75,7 +70,6 @@ Tracks outfit usage.
 | outfit_id | UUID | FK → outfits.id |
 | worn_at | TIMESTAMP | Wear Timestamp |
 
----
 
 ## ai_recommendations
 
@@ -88,7 +82,6 @@ Stores generated outfit recommendations.
 | recommendation_json | JSONB | Recommended Outfit Data |
 | created_at | TIMESTAMP | Generated Time |
 
----
 
 # 2. Database ER Diagram
 
@@ -116,7 +109,6 @@ Base URL
 /api/v1
 ```
 
----
 
 ## Authentication
 
@@ -135,7 +127,6 @@ Request
 }
 ```
 
----
 
 ### Login
 
@@ -152,7 +143,6 @@ Request
 }
 ```
 
----
 
 ## Wardrobe APIs
 
@@ -182,7 +172,6 @@ Response
 }
 ```
 
----
 
 ### Get All Items
 
@@ -203,7 +192,6 @@ Response
 ]
 ```
 
----
 
 ### Delete Item
 
@@ -211,7 +199,6 @@ Response
 DELETE /wardrobe/{id}
 ```
 
----
 
 ## Outfit APIs
 
@@ -234,7 +221,6 @@ Request
 }
 ```
 
----
 
 ### Get Outfits
 
@@ -242,7 +228,6 @@ Request
 GET /outfits
 ```
 
----
 
 ### Mark Outfit Worn
 
@@ -250,7 +235,6 @@ GET /outfits
 POST /outfits/{id}/wear
 ```
 
----
 
 ## Recommendation APIs
 
@@ -274,7 +258,6 @@ Response
 }
 ```
 
----
 
 # 3. Flutter Folder Structure
 
@@ -318,7 +301,6 @@ lib/
 └── main.dart
 ```
 
----
 
 # 4. Domain Models
 
@@ -334,7 +316,6 @@ class WardrobeItem {
 }
 ```
 
----
 
 ## Outfit
 
@@ -346,7 +327,6 @@ class Outfit {
 }
 ```
 
----
 
 ## Recommendation
 
@@ -358,7 +338,6 @@ class Recommendation {
 }
 ```
 
----
 
 # 5. Repository Layer
 
@@ -372,7 +351,6 @@ abstract class WardrobeRepository {
 }
 ```
 
----
 
 ## OutfitRepository
 
@@ -383,7 +361,6 @@ abstract class OutfitRepository {
 }
 ```
 
----
 
 ## RecommendationRepository
 
@@ -393,7 +370,6 @@ abstract class RecommendationRepository {
 }
 ```
 
----
 
 # 6. Service Layer
 
@@ -404,7 +380,6 @@ Responsibilities:
 - Compress images
 - Return secure URL
 
----
 
 ## GeminiService
 
@@ -414,7 +389,6 @@ Responsibilities:
 - Detect colors
 - Generate outfit recommendations
 
----
 
 ## SupabaseService
 
@@ -423,7 +397,6 @@ Responsibilities:
 - CRUD operations
 - Session management
 
----
 
 # 7. State Management Flow
 
@@ -463,7 +436,6 @@ WardrobeRepository
       +------> Supabase
 ```
 
----
 
 # 8. Sequence Diagram
 
@@ -497,7 +469,6 @@ Supabase
 Success Response
 ```
 
----
 
 # 9. Error Handling Strategy
 
@@ -509,7 +480,6 @@ Success Response
 | Authentication Failure | Redirect to Login |
 | Cloudinary Timeout | Retry Upload |
 
----
 
 # 10. Security Design
 
@@ -520,7 +490,6 @@ Success Response
 - Environment Variables for Secrets
 - Input Validation on APIs
 
----
 
 # 11. Future Enhancements
 

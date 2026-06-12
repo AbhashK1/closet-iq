@@ -4,7 +4,6 @@
 
 The Wardrobe AI application is a mobile-first platform that enables users to upload clothing items, organize their wardrobe, generate AI-powered outfit recommendations, save outfits, and track clothing usage.
 
----
 
 ## System Architecture
 
@@ -26,7 +25,6 @@ flowchart TD
     Gemini --> Supabase
 ```
 
----
 
 ## Components
 
@@ -44,7 +42,6 @@ flowchart TD
 - Search Functionality
 - Favorites Management
 
----
 
 ### 2. Backend API
 
@@ -58,7 +55,6 @@ flowchart TD
 - Data Processing
 - Database Operations
 
----
 
 ### 3. Database
 
@@ -71,7 +67,6 @@ flowchart TD
 - Store Favorites
 - Store Wear History
 
----
 
 ### 4. Image Storage
 
@@ -83,7 +78,6 @@ flowchart TD
 - CDN Delivery
 - Image Transformations
 
----
 
 ### 5. AI Recommendation Service
 
@@ -95,7 +89,6 @@ flowchart TD
 - Metadata Extraction
 - Outfit Recommendations
 
----
 
 ## Technology Stack
 
@@ -110,7 +103,6 @@ flowchart TD
 | Image Storage | Cloudinary |
 | AI Service | Gemini API |
 
----
 
 ## Data Flows
 
@@ -126,7 +118,6 @@ Supabase Auth
 User Account Created
 ```
 
----
 
 ### Upload Clothing Item
 
@@ -150,7 +141,6 @@ sequenceDiagram
     Supabase-->>Flutter: Success
 ```
 
----
 
 ### Generate Outfit Recommendation
 
@@ -170,7 +160,6 @@ flowchart LR
     Gemini --> Suggestions
 ```
 
----
 
 ### Save Outfit
 
@@ -187,7 +176,6 @@ Supabase Database
 Outfit Saved
 ```
 
----
 
 ### Wear Tracking
 
@@ -207,7 +195,6 @@ Wear History Storage
 Recommendation Engine Updated
 ```
 
----
 
 ## External Integrations
 
@@ -226,7 +213,6 @@ Recommendation Engine Updated
 - PostgreSQL Database
 - Edge Functions
 
----
 
 ## Scalability Considerations
 
@@ -236,7 +222,6 @@ Recommendation Engine Updated
 - Modular AI Service Layer
 - Future Support for Additional Recommendation Models
 
----
 
 ## Assumptions
 
