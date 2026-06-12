@@ -8,6 +8,7 @@ The Wardrobe AI application is a mobile-first platform that enables users to upl
 
 ## System Architecture
 
+```mermaid
 flowchart TD
 
     User[User]
@@ -23,6 +24,7 @@ flowchart TD
     Supabase --> Gemini[Gemini AI]
 
     Gemini --> Supabase
+```
 
 ---
 
@@ -128,6 +130,7 @@ User Account Created
 
 ### Upload Clothing Item
 
+```mermaid
 sequenceDiagram
 
     actor User
@@ -145,11 +148,13 @@ sequenceDiagram
     Flutter->>Supabase: Save Metadata
 
     Supabase-->>Flutter: Success
+```
 
 ---
 
 ### Generate Outfit Recommendation
 
+```mermaid
 flowchart LR
 
     Wardrobe[Wardrobe Items]
@@ -163,6 +168,7 @@ flowchart LR
     Wardrobe --> Rules
     Rules --> Gemini
     Gemini --> Suggestions
+```
 
 ---
 

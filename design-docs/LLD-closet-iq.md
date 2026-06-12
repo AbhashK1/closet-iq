@@ -92,6 +92,7 @@ Stores generated outfit recommendations.
 
 # 2. Database ER Diagram
 
+```mermaid
 erDiagram
 
     USERS ||--o{ WARDROBE_ITEMS : owns
@@ -105,6 +106,7 @@ erDiagram
     USERS ||--o{ FAVORITES : saves
 
     OUTFITS ||--o{ FAVORITES : favorited
+```
 
 # 3. API Design
 
