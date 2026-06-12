@@ -90,7 +90,23 @@ Stores generated outfit recommendations.
 
 ---
 
-# 2. API Design
+# 2. Database ER Diagram
+
+erDiagram
+
+    USERS ||--o{ WARDROBE_ITEMS : owns
+
+    USERS ||--o{ OUTFITS : creates
+
+    OUTFITS ||--o{ OUTFIT_ITEMS : contains
+
+    WARDROBE_ITEMS ||--o{ OUTFIT_ITEMS : used_in
+
+    USERS ||--o{ FAVORITES : saves
+
+    OUTFITS ||--o{ FAVORITES : favorited
+
+# 3. API Design
 
 Base URL
 

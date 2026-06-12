@@ -8,30 +8,21 @@ The Wardrobe AI application is a mobile-first platform that enables users to upl
 
 ## System Architecture
 
-```text
-+--------------------+
-|    Flutter App     |
-+--------------------+
-          |
-          v
-+--------------------+
-|   Backend API      |
-| (Supabase Edge Fn) |
-+--------------------+
-          |
-    +-----+-----+
-    |           |
-    v           v
-+--------+   +----------+
-|Supabase|   | Gemini AI|
-|Database|   +----------+
-+--------+         |
-    |              |
-    v              |
-+----------+       |
-|Cloudinary| <-----+
-+----------+
-```
+flowchart TD
+
+    User[User]
+
+    User --> Flutter[Flutter Mobile App]
+
+    Flutter --> Supabase[Supabase Backend]
+
+    Supabase --> DB[(PostgreSQL Database)]
+
+    Supabase --> Cloudinary[Cloudinary Storage]
+
+    Supabase --> Gemini[Gemini AI]
+
+    Gemini --> Supabase
 
 ---
 
@@ -137,47 +128,41 @@ User Account Created
 
 ### Upload Clothing Item
 
-```text
-Flutter App
-      |
-      v
-Backend API
-      |
-      v
-Cloudinary Upload
-      |
-      v
-Gemini Analysis
-      |
-      v
-Supabase Metadata Storage
-      |
-      v
-Success Response
-```
+sequenceDiagram
+
+    actor User
+
+    User->>Flutter: Upload Shirt Image
+
+    Flutter->>Cloudinary: Store Image
+
+    Cloudinary-->>Flutter: Image URL
+
+    Flutter->>Gemini: Analyze Apparel
+
+    Gemini-->>Flutter: Tags & Metadata
+
+    Flutter->>Supabase: Save Metadata
+
+    Supabase-->>Flutter: Success
 
 ---
 
 ### Generate Outfit Recommendation
 
-```text
-Flutter App
-      |
-      v
-Backend API
-      |
-      v
-Fetch Wardrobe Data
-      |
-      v
-Gemini Recommendation Engine
-      |
-      v
-Recommended Outfits
-      |
-      v
-Flutter UI
-```
+flowchart LR
+
+    Wardrobe[Wardrobe Items]
+
+    Rules[Rule Engine]
+
+    Gemini[Gemini AI]
+
+    Suggestions[Outfit Suggestions]
+
+    Wardrobe --> Rules
+    Rules --> Gemini
+    Gemini --> Suggestions
 
 ---
 
