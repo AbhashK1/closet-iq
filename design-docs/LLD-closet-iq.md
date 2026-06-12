@@ -7,7 +7,7 @@ The Low-Level Design (LLD) defines the internal structure of the Wardrobe AI app
 
 # 1. Database Design
 
-## users
+### users
 
 Managed by Supabase Auth.
 
@@ -18,7 +18,7 @@ Managed by Supabase Auth.
 | created_at | TIMESTAMP | Account Creation Date |
 
 
-## wardrobe_items
+### wardrobe_items
 
 Stores all clothing items uploaded by users.
 
@@ -36,7 +36,7 @@ Stores all clothing items uploaded by users.
 | created_at | TIMESTAMP | Upload Time |
 
 
-## outfits
+### outfits
 
 Stores user-created outfits.
 
@@ -49,7 +49,7 @@ Stores user-created outfits.
 | created_at | TIMESTAMP | Creation Date |
 
 
-## outfit_items
+### outfit_items
 
 Many-to-many relationship between outfits and wardrobe items.
 
@@ -60,7 +60,7 @@ Many-to-many relationship between outfits and wardrobe items.
 | wardrobe_item_id | UUID | FK → wardrobe_items.id |
 
 
-## wear_history
+### wear_history
 
 Tracks outfit usage.
 
@@ -71,7 +71,7 @@ Tracks outfit usage.
 | worn_at | TIMESTAMP | Wear Timestamp |
 
 
-## ai_recommendations
+### ai_recommendations
 
 Stores generated outfit recommendations.
 
@@ -259,7 +259,7 @@ Response
 ```
 
 
-# 3. Flutter Folder Structure
+# 4. Flutter Folder Structure
 
 ```text
 lib/
@@ -302,7 +302,7 @@ lib/
 ```
 
 
-# 4. Domain Models
+# 5. Domain Models
 
 ## WardrobeItem
 
@@ -339,7 +339,7 @@ class Recommendation {
 ```
 
 
-# 5. Repository Layer
+# 6. Repository Layer
 
 ## WardrobeRepository
 
@@ -371,9 +371,9 @@ abstract class RecommendationRepository {
 ```
 
 
-# 6. Service Layer
+# 7. Service Layer
 
-## CloudinaryService
+### CloudinaryService
 
 Responsibilities:
 - Upload images
@@ -381,7 +381,7 @@ Responsibilities:
 - Return secure URL
 
 
-## GeminiService
+### GeminiService
 
 Responsibilities:
 - Analyze clothing image
@@ -390,7 +390,7 @@ Responsibilities:
 - Generate outfit recommendations
 
 
-## SupabaseService
+### SupabaseService
 
 Responsibilities:
 - Authentication
@@ -398,7 +398,7 @@ Responsibilities:
 - Session management
 
 
-# 7. State Management Flow
+# 8. State Management Flow
 
 Using Riverpod.
 
@@ -437,7 +437,7 @@ WardrobeRepository
 ```
 
 
-# 8. Sequence Diagram
+# 9. Sequence Diagram
 
 ## Upload Clothing Item
 
@@ -470,7 +470,7 @@ Success Response
 ```
 
 
-# 9. Error Handling Strategy
+# 10. Error Handling Strategy
 
 | Scenario | Handling |
 |------------|------------|
@@ -481,7 +481,7 @@ Success Response
 | Cloudinary Timeout | Retry Upload |
 
 
-# 10. Security Design
+# 11. Security Design
 
 - Supabase JWT Authentication
 - Row Level Security (RLS)
@@ -491,7 +491,7 @@ Success Response
 - Input Validation on APIs
 
 
-# 11. Future Enhancements
+# 12. Future Enhancements
 
 - Weather-Based Recommendations
 - Occasion-Based Outfit Suggestions
