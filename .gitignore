@@ -1,0 +1,65 @@
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# IDEs
+# =========================
+.idea/
+.vscode/
+
+# =========================
+# Environment Variables
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Flutter
+# =========================
+mobile/.dart_tool/
+mobile/build/
+mobile/.flutter-plugins
+mobile/.flutter-plugins-dependencies
+mobile/.packages
+
+# Android
+mobile/android/.gradle/
+mobile/android/local.properties
+
+# iOS
+mobile/ios/Pods/
+mobile/ios/.symlinks/
+mobile/ios/Flutter/ephemeral/
+
+# macOS
+mobile/macos/Pods/
+
+# =========================
+# Future Backend (Node.js)
+# =========================
+backend/node_modules/
+backend/dist/
+backend/.env
+backend/.env.*
+
+# =========================
+# Coverage & Reports
+# =========================
+coverage/
+*.coverage
+
+# =========================
+# Temporary Files
+# =========================
+*.tmp
+*.temp
